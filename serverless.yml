@@ -1,0 +1,38 @@
+service: 
+ name: UP
+
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+  - serverless-bundle
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  memorySize: 128
+  stage: ${opt:stage, 'dev'}
+
+  resources:
+  Resources:
+    AuctionsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: AuctionsTable
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+  
+
+functions:
+ cfy;
+handler: src/cfy/handler.cfy
+events:
+    - http:
+       path: cfy
+       method: get
