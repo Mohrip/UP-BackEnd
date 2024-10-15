@@ -1,6 +1,7 @@
 service: 
  name: UP
 
+name: UP
 
 plugins:
   - serverless-offline
@@ -14,7 +15,7 @@ provider:
   memorySize: 128
   stage: ${opt:stage, 'dev'}
 
-  resources:
+resources:
   Resources:
     AuctionsTable:
       Type: AWS::DynamoDB::Table
@@ -27,12 +28,11 @@ provider:
         KeySchema:
           - AttributeName: id
             KeyType: HASH
-  
 
 functions:
- cfy;
-handler: src/cfy/handler.cfy
-events:
-    - http:
-       path: cfy
-       method: get
+  cfy:
+    handler: src/cfy/handler.cfy
+    events:
+      - http:
+          path: cfy
+          method: get
