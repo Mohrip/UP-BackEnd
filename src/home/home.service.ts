@@ -6,49 +6,49 @@ export class homeService {
     {
       UniversityName: "KAU",
       location: "Jeddah",
-      rating: 4.5,
+      rating: 4.85,
       UniversityID: 1,
       UniversityUrl: "https://www.kau.edu.sa/Home.aspx",
     },
     {
       UniversityName: "KSU",
       location: "Riyadh",
-      rating: 4.3,
+      rating: 5,
       UniversityID: 2,
       UniversityUrl: "https://www.ksu.edu.sa/",
     },
     {
       UniversityName: "KFU",
       location: "Dammam",
-      rating: 4.1,
+      rating: 3.1,
       UniversityID: 3,
       UniversityUrl: "https://www.kfu.edu.sa/ar/Pages/default.aspx",
     },
     {
       UniversityName: "UQU",
       location: "Makkah",
-      rating: 4.0,
+      rating: 3.65,
       UniversityID: 4,
       UniversityUrl: "https://uqu.edu.sa/",
     },
     {
       UniversityName: "PSU",
       location: "Al-Ahsa",
-      rating: 3.9,
+      rating: 3.99,
       UniversityID: 5,
       UniversityUrl: "https://www.psu.edu.sa/ar/",
     },
     {
     UniversityName: "PMU",
     location: "Al-Khobar",
-    rating: 3.8,
+    rating: 2.8,
     UniversityID: 6,
     UniversityUrl: "https://www.pmu.edu.sa/",
     },
     {
     UniversityName: "IMAMU",
     location: "Riyadh",
-    rating: 3.7,
+    rating: 3.1,
     UniversityID: 7,
     UniversityUrl: "https://www.imamu.edu.sa/",
     },
@@ -57,7 +57,7 @@ export class homeService {
     {
       UniversityName: "YU",
       location: "Yanbu",
-      rating: 3.6,
+      rating: 3.99,
       UniversityID: 8,
       UniversityUrl: "https://yu.edu.sa/",
     },
@@ -78,42 +78,42 @@ export class homeService {
     {
       UniversityName: "BU",
       location: "Buraydah",
-      rating: 3.3,
+      rating: 2.5,
       UniversityID: 11,
       UniversityUrl: "https://www.bu.edu.sa/web/",
     },
     {
       UniversityName: "TU",
       location: "Tabuk",
-      rating: 3.2,
+      rating: 2.2,
       UniversityID: 12,
       UniversityUrl: "https://www.ut.edu.sa/",
     },
     {
       UniversityName: "HailU",
       location: "Hail",
-      rating: 3.1,
+      rating: 2.1,
       UniversityID: 13,
       UniversityUrl: "https://www.uoh.edu.sa/",
     },
     {
       UniversityName: "NU",
       location: "Najran",
-      rating: 3.0,
+      rating: 2.21,
       UniversityID: 14,
       UniversityUrl: "https://www.nu.edu.sa/",
     },
     {
       UniversityName: "BU",
       location: "Bisha",
-      rating: 2.9,
+      rating: 2.11,
       UniversityID: 15,
       UniversityUrl: "https://www.bu.edu.sa/web/",
     },
     {
       UniversityName: "JU",
       location: "Jouf",
-      rating: 2.8,
+      rating: 2.65,
       UniversityID: 16,
       UniversityUrl: "https://www.ju.edu.sa/",
     },
@@ -134,21 +134,21 @@ export class homeService {
     {
       UniversityName: "KFUPM",
       location: "Dhahran",
-      rating: 2.5,
+      rating: 4.5,
       UniversityID: 19,
       UniversityUrl: "https://www.kfupm.edu.sa/",
     },
     {
       UniversityName: "KAUST",
       location: "Thuwal",
-      rating: 2.4,
+      rating: 4.4,
       UniversityID: 20,
       UniversityUrl: "https://www.kaust.edu.sa/en",
     },
     {
       UniversityName: "PNU",
       location: "Riyadh",
-      rating: 2.3,
+      rating: 4.3,
       UniversityID: 21,
       UniversityUrl: "https://www.pnu.edu.sa/",
     },
@@ -166,11 +166,12 @@ export class homeService {
       return { message: "University not found" };
     }
   }
-              /*FOR THE ELIGIBILITY: I WANT TO RANK BEST UNIS IN SCALE FROM 3.99 -> 5 // AND THE GOOD ONES 2.99 -> 3.98 OTHERS 2.99 AND BELOW 
-              THEN... I WANT TO ADD A FUNCTION THAT WILL RETURN THE RANK OF THE UNIVERSITY BASED ON THE RATING WITH THE FOLLOWING CONDITIONS: AND MESSAGE TO THE USER  */
-
+              /*FOR THE ELIGIBILITY:  THEN... 
+              I WANT TO ADD A FUNCTION THAT WILL RETURN THE list of uni based on the grades of the student and it needs to be fetch auto  */
+///
+///
               
-  calculateEligibility(T: number, Q: number, school: number): string {
+  async calculateEligibility(T: number, Q: number, school: number, UniversityName: string): Promise<any> {
     if (T >= 95 && Q >= 95 && school >= 95) {
       return "Eligible to study in the best universities";
     } else if (T >= 90 && Q >= 90 && school >= 90) {

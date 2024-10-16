@@ -6,9 +6,9 @@ export class homeController {
   constructor(private readonly homeService: homeService) {}
 
   @Post()
-  calculate(@Body() body: { T: number; Q: number; school: number }): string {
-    const { T, Q, school } = body;
-    return this.homeService.calculateEligibility(T, Q, school);
+  calculate(@Body() body: { T: number; Q: number; school: number, UniversityName: string }): Promise<any> {
+    const { T, Q, school, UniversityName } = body;
+    return this.homeService.calculateEligibility(T, Q, school, UniversityName);
   }
 
   @Get()
