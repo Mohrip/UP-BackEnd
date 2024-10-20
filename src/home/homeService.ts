@@ -166,19 +166,16 @@ export class homeService {
       return { message: "University not found" };
     }
   }
-              /*FOR THE ELIGIBILITY:  THEN... 
-              I WANT TO ADD A FUNCTION THAT WILL RETURN THE list of uni based on the grades of the student and it needs to be fetch auto  */
-///
-///
-              
+
+
   async calculateEligibility(T: number, Q: number, school: number): Promise<any> {
     if (T >= 95 && Q >= 95 && school >= 95) {
-      return `Eligible to study in the best universities: ${this.getUniversityByRating(4.5)}`; ;
+      return `Eligible to study in the best universities: ${this.getUniversityByRating(4)}`; ;
     } else if (T >= 90 && Q >= 90 && school >= 90) {
-      return "Eligible to study in good universities";
+      return `Eligible to study in good universities; ${this.getUniversityByRating(3)}`;
     }
     else if (T >= 80 && Q >= 80 && school >= 80) {
-      return "Eligible to study in other universities";
+      return `Eligible to study in other universities; ${this.getUniversityByRating(2)}`;
     }
     else {
       return "Not Eligible";
@@ -193,11 +190,5 @@ export class homeService {
     .map(uni => `${uni.UniversityName} (${uni.location})`)
     .join(', ');
 }
-  
 
-
-  // private getUniversity(): string {
-
-  //   return this.universities.map(uni => `${uni.UniversityName} (${uni.location})`).join(', ');
-  // }
 }
