@@ -173,7 +173,7 @@ export class homeService {
               
   async calculateEligibility(T: number, Q: number, school: number): Promise<any> {
     if (T >= 95 && Q >= 95 && school >= 95) {
-      return "Eligible to study in the best universities" ;
+      return `Eligible to study in the best universities: ${this.getUniversityByRating(4.5)}`; ;
     } else if (T >= 90 && Q >= 90 && school >= 90) {
       return "Eligible to study in good universities";
     }
