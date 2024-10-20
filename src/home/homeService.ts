@@ -173,7 +173,7 @@ export class homeService {
               
   async calculateEligibility(T: number, Q: number, school: number): Promise<any> {
     if (T >= 95 && Q >= 95 && school >= 95) {
-      return `Eligible to study in the best universities: ${this.getUniversity()}`;
+      return "Eligible to study in the best universities" ;
     } else if (T >= 90 && Q >= 90 && school >= 90) {
       return "Eligible to study in good universities";
     }
@@ -186,8 +186,18 @@ export class homeService {
     }
   }
 
-  private getUniversity(): string {
+  private getUniversityByRating(minRating: number=0): string {
+    
+    return this.universities
+    .filter(uni => uni.rating >= minRating)
+    .map(uni => `${uni.UniversityName} (${uni.location})`)
+    .join(', ');
+}
+  
 
-    return this.universities.map(uni => `${uni.UniversityName} (${uni.location})`).join(', ');
-  }
+
+  // private getUniversity(): string {
+
+  //   return this.universities.map(uni => `${uni.UniversityName} (${uni.location})`).join(', ');
+  // }
 }

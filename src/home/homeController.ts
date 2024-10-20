@@ -4,11 +4,11 @@ import { homeService } from './homeService';
 
 @Controller('home')
 export class HomeController {
-  constructor(private readonly homeService:homeService) {}
+  constructor(private readonly homeService: homeService) {}
 
   @Post('/')
-  calculate(@Body() body: { T: number; Q: number; school: number; UniversityName: string }): Promise<any> {
-    const { T, Q, school, UniversityName } = body;
+  calculate(@Body() body: { T: number; Q: number; school: number }): Promise<any> {
+    const { T, Q, school,  } = body;
     return this.homeService.calculateEligibility(T, Q, school);
   }
 
