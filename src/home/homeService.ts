@@ -187,6 +187,7 @@ export class homeService {
   }
 
   private getUniversity(): string {
+
     return this.universities.map(uni => `${uni.UniversityName} (${uni.location})`).join(', ');
   }
 }
